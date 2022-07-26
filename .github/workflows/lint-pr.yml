@@ -1,0 +1,30 @@
+name: Lint Pull Request
+
+on:
+  pull_request:
+    types:
+      - opened
+      - edited
+      - synchronize
+
+jobs:
+  main:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: amannn/action-semantic-pull-request@v4.2.0
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          types: |
+            build
+            ci
+            docs
+            feat
+            fix
+            perf
+            refactor
+            test
+            chore
+          requireScope: ${{ inputs.require_scope }}
+          subjectPattern: ^(?![A-Z]).+$
+          validateSingleCommit: ${{ inputs.validate_single_commit }}
