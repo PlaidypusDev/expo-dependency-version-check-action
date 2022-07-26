@@ -1,0 +1,6 @@
+name: "Expo Dependency Version Check"
+description: "Make sure installed dependencies match the installed Expo version"
+
+runs:
+  using: "node16"
+  main: "index.js"
